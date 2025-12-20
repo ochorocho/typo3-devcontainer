@@ -1,0 +1,37 @@
+{
+	"name": "TYPO3 CMS Core",
+	"image": "ghcr.io/ochorocho/santas-little-helper:8.4",
+	"workspaceFolder": "/workspace",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-azuretools.vscode-docker",
+				"alexcvzz.vscode-sqlite",
+				"xdebug.php-pack",
+				"EditorConfig.EditorConfig",
+				"yzhang.markdown-all-in-one"
+			],
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "zsh"
+			}
+		}
+	},
+	"remoteUser": "vscode",
+	"postStartCommand": "zsh .devcontainer/post-start.sh",
+	// We need a fixed port to be able to define a base url in the site config
+	"appPort": 8884,
+	"forwardPorts": [8025],
+	"portsAttributes": {
+		"8884": {
+			"label": "Webserver",
+			"onAutoForward": "notify",
+			"visibility": "public"
+		},
+		"8025": {
+			"label": "MailCatcher",
+			"onAutoForward": "notify",
+			"visibility": "public"
+		}
+	}
+}
