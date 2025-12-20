@@ -1,8 +1,8 @@
 {
 	"name": "TYPO3 CMS Core",
 	"image": "ghcr.io/ochorocho/santas-little-helper:8.4",
-	"workspaceFolder": "/workspace",
-	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+	"workspaceFolder": "/workspaces/typo3-devcontainer",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/typo3-devcontainer,type=bind,consistency=cached",
 	"customizations": {
 		"vscode": {
 			"extensions": [
@@ -20,10 +20,10 @@
 	"remoteUser": "vscode",
 	"postStartCommand": "zsh .devcontainer/post-start.sh",
 	// We need a fixed port to be able to define a base url in the site config
-	"appPort": 8884,
+	"appPort": 8888,
 	"forwardPorts": [8025],
 	"portsAttributes": {
-		"8884": {
+		"8888": {
 			"label": "Webserver",
 			"onAutoForward": "notify",
 			"visibility": "public"
