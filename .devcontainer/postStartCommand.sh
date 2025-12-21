@@ -11,4 +11,6 @@ sudo service cron start
 # Ensure caches are clean and env vars will be loaded
 slh php $WORKSPACE_PATH/vendor/bin/typo3 extension:setup
 slh php $WORKSPACE_PATH/vendor/bin/typo3 cache:flush
-cd $WORKSPACE_PATH && slh webserver
+cd $WORKSPACE_PATH && slh webserver &
+sleep 2
+code --openExternal $TYPO3_BASE_DOMAIN/typo3/
