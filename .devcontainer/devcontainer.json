@@ -22,7 +22,7 @@
 	"appPort": 8888,
 	"forwardPorts": [8025],
 	"portsAttributes": {
-		"80": {
+		"8888": {
 			"label": "Webserver",
 			"onAutoForward": "notify",
 			"visibility": "public"
