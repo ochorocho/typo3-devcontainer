@@ -1,5 +1,6 @@
 /vendor
 /public
-/config
+/config/sites
+/config/system/settings.php
 /.idea
 /var/
