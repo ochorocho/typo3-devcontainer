@@ -8,7 +8,6 @@
 			"extensions": [
 				"ms-azuretools.vscode-docker",
 				"alexcvzz.vscode-sqlite",
-				"xdebug.php-pack",
 				"EditorConfig.EditorConfig",
 				"yzhang.markdown-all-in-one"
 			],
@@ -23,7 +22,7 @@
 	"appPort": 8888,
 	"forwardPorts": [8025],
 	"portsAttributes": {
-		"8888": {
+		"80": {
 			"label": "Webserver",
 			"onAutoForward": "notify",
 			"visibility": "public"
