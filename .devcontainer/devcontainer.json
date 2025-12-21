@@ -17,7 +17,8 @@
 		}
 	},
 	"remoteUser": "vscode",
-	"postStartCommand": "zsh .devcontainer/post-start.sh",
+	"postCreateCommand": "zsh .devcontainer/postCreateCommand.sh",
+	"postStartCommand": "zsh .devcontainer/postStartCommand.sh",
 	// We need a fixed port to be able to define a base url in the site config
 	"appPort": 8888,
 	"forwardPorts": [8025],
