@@ -4,6 +4,11 @@
 	"workspaceFolder": "/workspaces/typo3-devcontainer",
 	"workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/typo3-devcontainer,type=bind,consistency=cached",
 	"customizations": {
+		"codespaces": {
+			"openFiles": [
+				".devcontainer/DEVCONTAINER-INFO.md"
+			]
+		},
 		"vscode": {
 			"extensions": [
 				"ms-azuretools.vscode-docker",
@@ -12,16 +17,22 @@
 				"yzhang.markdown-all-in-one"
 			],
 			"settings": {
-				"terminal.integrated.defaultProfile.linux": "zsh"
+				"terminal.integrated.defaultProfile.linux": "bash",
+				"workbench.editorAssociations": {
+					"**/DEVCONTAINER-INFO.md": "vscode.markdown.preview.editor"
+				}
 			}
 		}
 	},
 	"remoteUser": "vscode",
-	"postCreateCommand": "zsh .devcontainer/postCreateCommand.sh",
-	"postStartCommand": "zsh .devcontainer/postStartCommand.sh",
+	"postCreateCommand": ".devcontainer/postCreateCommand.sh",
+	"postStartCommand": ".devcontainer/postStartCommand.sh",
 	// We need a fixed port to be able to define a base url in the site config
 	"appPort": 8888,
-	"forwardPorts": [8025],
+	"forwardPorts": [
+		8025,
+		8888
+	],
 	"portsAttributes": {
 		"8888": {
 			"label": "Webserver",

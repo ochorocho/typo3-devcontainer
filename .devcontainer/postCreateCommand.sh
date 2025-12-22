@@ -4,9 +4,9 @@ set -xe
 
 sudo chmod a+x "$(pwd)"
 
-if [ -z "$(ls -A $WORKSPACE_PATH)" ]; then
+if [ "$(ls -A $WORKSPACE_PATH)" ]; then
     echo "The folder $WORKSPACE_PATH is not empty, skipping Santa's Little Helper setup."
-    exit 1
+    exit 0
 else
     SLH_USERNAME=ochorocho SLH_HOOK_CREATE=1 SLH_COMMIT_TEMPLATE="/home/vscode/.santas-little-helper/gitmessage.txt" slh core:setup $WORKSPACE_PATH --no-interaction
 fi

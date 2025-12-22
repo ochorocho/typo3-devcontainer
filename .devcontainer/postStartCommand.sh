@@ -14,5 +14,6 @@ sudo service cron start
 slh php $WORKSPACE_PATH/vendor/bin/typo3 extension:setup
 slh php $WORKSPACE_PATH/vendor/bin/typo3 cache:flush
 cd $WORKSPACE_PATH && slh webserver &
-sleep 2
-code --openExternal $TYPO3_BASE_DOMAIN/typo3/
+
+# code --reuse-window .devcontainer/DEVCONTAINER-INFO.md
+# code --openExternal $TYPO3_BASE_DOMAIN/typo3/
