@@ -11,15 +11,14 @@
 		},
 		"vscode": {
 			"extensions": [
-				"ms-azuretools.vscode-docker",
 				"alexcvzz.vscode-sqlite",
 				"EditorConfig.EditorConfig",
 				"yzhang.markdown-all-in-one"
 			],
 			"settings": {
-				"terminal.integrated.defaultProfile.linux": "bash",
+				"workbench.startupEditor": "readme",
 				"workbench.editorAssociations": {
-					"**/DEVCONTAINER-INFO.md": "vscode.markdown.preview.editor"
+					"DEVCONTAINER-INFO.md": "vscode.markdown.preview.editor"
 				}
 			}
 		}
