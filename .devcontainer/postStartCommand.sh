@@ -1,5 +1,7 @@
 #!/usr/bin/zsh
 
+set -xe
+
 WORKSPACE_PATH=/workspaces/typo3-devcontainer
 
 # Start Mailpit

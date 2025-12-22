@@ -1,5 +1,7 @@
 #!/usr/bin/zsh
 
+set -xe
+
 sudo chmod a+x "$(pwd)"
 
 if [ -z "$(ls -A $WORKSPACE_PATH)" ]; then
