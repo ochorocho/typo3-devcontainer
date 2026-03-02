@@ -4,6 +4,9 @@ set -e
 
 sudo chmod a+x "$(pwd)"
 
+# Wait for MariaDB to be ready before proceeding
+.devcontainer/wait-for-db.sh
+
 # Dynamically set TYPO3_BASE_DOMAIN depending on the environment (local or codespaces)
 if [[ -n "$CODESPACE_NAME" ]]; then
   INFO="https://$CODESPACE_NAME-8888.app.github.dev/typo3"

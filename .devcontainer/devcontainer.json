@@ -1,8 +1,9 @@
 {
 	"name": "TYPO3 CMS Core",
-	"image": "ghcr.io/ochorocho/santas-little-helper:8.4",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
 	"workspaceFolder": "/workspaces/typo3-devcontainer",
-	"workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/typo3-devcontainer,type=bind,consistency=cached",
+	"shutdownAction": "stopCompose",
 	"customizations": {
 		"codespaces": {
 			"openFiles": [
@@ -11,7 +12,6 @@
 		},
 		"vscode": {
 			"extensions": [
-				"alexcvzz.vscode-sqlite",
 				"EditorConfig.EditorConfig",
 				"yzhang.markdown-all-in-one"
 			],
@@ -26,9 +26,8 @@
 	"remoteUser": "vscode",
 	"postCreateCommand": ".devcontainer/postCreateCommand.sh",
 	"postStartCommand": ".devcontainer/postStartCommand.sh",
-	// We need a fixed port to be able to define a base url in the site config
-	"appPort": 8888,
 	"forwardPorts": [
+		3306,
 		8025,
 		8888
 	],
@@ -42,6 +41,10 @@
 			"label": "MailCatcher",
 			"onAutoForward": "notify",
 			"visibility": "public"
+		},
+		"3306": {
+			"label": "MariaDB",
+			"onAutoForward": "silent"
 		}
 	}
 }

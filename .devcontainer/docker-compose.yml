@@ -1,0 +1,32 @@
+services:
+  app:
+    image: ghcr.io/ochorocho/santas-little-helper:8.4
+    volumes:
+      - ..:/workspaces/typo3-devcontainer:cached
+    command: sleep infinity
+    env_file:
+      - ../.env
+    environment:
+      WORKSPACE_PATH: /workspaces/typo3-devcontainer
+
+  db:
+    image: mariadb:11.5
+    restart: unless-stopped
+    network_mode: service:app
+    volumes:
+      - mariadb-data:/var/lib/mysql
+    environment:
+      MARIADB_DATABASE: ${MARIADB_DATABASE:-typo3}
+      MARIADB_USER: ${MARIADB_USER:-typo3}
+      MARIADB_PASSWORD: ${MARIADB_PASSWORD:-typo3}
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD:-root}
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      start_period: 1m
+      start_interval: 10s
+      interval: 1m
+      timeout: 5s
+      retries: 3
+
+volumes:
+  mariadb-data:
